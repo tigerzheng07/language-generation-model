@@ -1,0 +1,12 @@
+// ===============================输入示例===================================
+!pip install transformers torch
+
+from transformers import pipeline, set_seed
+
+generator = pipeline("text-generation", model="gpt2")
+set_seed(42)
+print("===简单文本生成示例===")
+prompt = "artifitial intelligence can"
+results = generator(prompt, max_length = 50, num_return_sequences = 1)
+print(results[0]["generated_text"])
+
